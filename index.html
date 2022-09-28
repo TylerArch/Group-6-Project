@@ -19,9 +19,38 @@
     <title>Document</title>
 </head>
 <body>
+  <!--Jumbotron for website intro-->
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Movie </h1>
+      <p class="lead">Use this website to find movie data</p>
+    </div>
+  </div>
+
+  <!--Search for movie-->
+  <div class="container">
+    <div class="row">
+      <div id="content-left" class="col-sm-3">
+        <form>
+          <label for="search-movie">Search for a movie</label>
+          <div class="form-row">
+            <input id="search-movie" class="form-control" placeholder="Search movie"></input>
+            <input class="btn btn-primary" type="submit" value="search">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+    </form>
+
+<!--Add search results from API display in block-->
+
+<!--Add plus button to save movies to second HTML-->
+
     
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
 <script src="./assets/js/script.js"></script>
 </html>
