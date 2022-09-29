@@ -1,6 +1,6 @@
-// Variables
 var movieInput = document.getElementById('search-movie');
-var searchForm = document.getElementById('searchForm')
+var searchForm = document.getElementById('searchForm');
+var resultsEl = $("#result-content");
 
 //Add Api
 const options = {
@@ -14,15 +14,24 @@ const options = {
 function getMovie(event) {
   event.preventDefault();
   const movie = movieInput.value
-  console.log(movie)
   fetch(`https://movie-database-alternative.p.rapidapi.com/?s=${movie}&r=json&page=1`, options)
     .then(response => response.json())
-    .then(response => console.log(response))
+    .then(response => {
+      //console.log(response.Search[0]);
+      //let resultEl = $('<div>').text('test');
+      for (var i = 0; i < response.Search.length; i++) {
+        let result = JSON.stringify(response.Search[i])
+        let resultEl = $('<div>').text(result);
+        resultsEl.append(resultEl);
+      }
+      
+      //resultsEl.append($('<div>').text(response));
+    })
     .catch(err => console.error(err));
+
 }
 
 searchForm.addEventListener('submit', getMovie);
-console.log("hello")
 //DOM Elements
 
 
