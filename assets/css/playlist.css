@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+  /* padding: 10px;
+  margin: 10px; */
+}
+
+/* Body HTML */
+
+/* utility */
+html.sr .load-hidden {
+  visibility: hidden;
+}
+
+body {
+  background-color: gray;
+  padding:50px;
+
+}
+
+.headline {
+  color: white;
+  text-align: center;
+}
+
+
+.widget-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: black;
+  border-radius: 8px;
+}
+
+.widget {
+  width: 9%;
+  height: 100px;
+  flex: auto;
+  margin: 0.5rem;
+  background: white;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.widget:hover{
+  box-shadow: 3px 3px 8px 0px yellow;
+  transform: scale(250%);
+  
+}
+
+/* extension */
+html.sr .widget {
+  visibility: hidden;
+}
+
+
