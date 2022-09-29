@@ -4,7 +4,7 @@ var movieInput = document.getElementById('search-movie');
 var searchForm = document.getElementById('searchForm')
 let movieSearch = [];
 let previousSearch = document.getElementById('previous-search');
-
+let resultsEl = $("#result-content");
 
 //Add Api
 const options = {
