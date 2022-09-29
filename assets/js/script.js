@@ -1,6 +1,6 @@
 // Variables
 var movieInput = document.getElementById('search-movie');
-var submitBtn = documnet.getElementById('submitBtn')
+var searchForm = document.getElementById('searchForm')
 
 //Add Api
 const options = {
@@ -11,13 +11,18 @@ const options = {
   }
 };
 
-fetch(`https://movie-database-alternative.p.rapidapi.com/?s=${movieInput}&r=json&page=1`, options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
+function getMovie(event) {
+  event.preventDefault();
+  const movie = movieInput.value
+  console.log(movie)
+  fetch(`https://movie-database-alternative.p.rapidapi.com/?s=${movie}&r=json&page=1`, options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+}
 
-submitBtn.addEventListener('search');
-
+searchForm.addEventListener('submit', getMovie);
+console.log("hello")
 //DOM Elements
 
 
