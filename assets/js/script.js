@@ -30,9 +30,12 @@ function getMovie(event) {
       //console.log(response.Search[0]);
       //let resultEl = $('<div>').text('test');
       for (var i = 0; i < response.Search.length; i++) {
-        let result = JSON.stringify(response.Search[i])
-        let resultEl = $('<div>').text(result);
-        resultsEl.append(resultEl);
+        console.log(response.Search);
+        let resultText = (response.Search[i].Title + " " + response.Search[i].Year);
+        let poster = $('<img>').attr("src", response.Search[i].Poster);
+        let resultEl = $('<div>').text(resultText);
+        let saveToWatchListButton = $("<button>").text("Save");
+        resultsEl.append(resultEl).append(poster).append(saveToWatchListButton);
       }
       
       //resultsEl.append($('<div>').text(response));
