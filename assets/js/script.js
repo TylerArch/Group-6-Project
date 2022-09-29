@@ -1,6 +1,10 @@
+
+//Global variables
 var movieInput = document.getElementById('search-movie');
-var searchForm = document.getElementById('searchForm');
-var resultsEl = $("#result-content");
+var searchForm = document.getElementById('searchForm')
+let movieSearch = [];
+let previousSearch = document.getElementById('previous-search');
+
 
 //Add Api
 const options = {
@@ -14,6 +18,12 @@ const options = {
 function getMovie(event) {
   event.preventDefault();
   const movie = movieInput.value
+
+  console.log(movie)
+  movieSearch.push(movie)
+  storeSearch()
+  renderSearch()
+
   fetch(`https://movie-database-alternative.p.rapidapi.com/?s=${movie}&r=json&page=1`, options)
     .then(response => response.json())
     .then(response => {
@@ -32,10 +42,47 @@ function getMovie(event) {
 }
 
 searchForm.addEventListener('submit', getMovie);
-//DOM Elements
 
 
-//Global Variables
+//Previous movie search saved to local storage
+function storeSearch() {
+  localStorage.setItem("movieSearch", JSON.stringify(movieSearch));
+};
+
+function renderSearch() {
+  var prevSearch = JSON.parse(localStorage.getItem("movieSearch"))
+  if (prevSearch) {
+    movieSearch = prevSearch
+  } else {
+    movieSearch = []
+  }
+  previousSearch.innerHTML = "";
+  for (var i = 0; i < movieSearch.length; i++) {
+    var singleSearch = movieSearch[i];
+    var div = document.createElement("div");
+    var pTag = document.createElement("p");
+    var btn = document.createElement("button");
+    btn.textContent = "Add To Watch List"
+    pTag.textContent = singleSearch;
+    div.appendChild(pTag);
+    div.appendChild(btn);
+    btn.setAttribute("data-index", i);
+    previousSearch.appendChild(div)
+  }
+};
+
+previousSearch.addEventListener('submit', function (event) {
+  event.preventDefault();
+  var movieVal = movieInput.value.trim();
+  movieSearch.push(movieVal)
+  storeSearch()
+  renderSearch()
+});
+
+// add an event listener for when someone CLICKS in the previous Search area
+// see if the item clicked was a button 
+// get the custom attribute of that button -- that will tell you where that movie is in the array
+
 
 
 //Functions
