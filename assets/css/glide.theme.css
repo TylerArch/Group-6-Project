@@ -1,9 +1,9 @@
 .glide__arrow {
   position: absolute;
   display: block;
-  top: 50%;
+  top: 120%;
   z-index: 2;
-  color: white;
+  color: rgb(255, 255, 255);
   text-transform: uppercase;
   padding: 9px 12px;
   background-color: transparent;
