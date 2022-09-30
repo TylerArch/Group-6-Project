@@ -31,6 +31,11 @@ function getMovie(event, previousMovie) {
       searchTitleEl.text(" " + movie);
       //console.log(response.Search[0]);
       //let resultEl = $('<div>').text('test');
+      const list = document.getElementById("result-content");
+
+      while (list.hasChildNodes()) {
+        list.removeChild(list.firstChild);
+      }
       for (var i = 0; i < response.Search.length; i++) {
         //console.log(response.Search);
         let resultText = (response.Search[i].Title + " " + response.Search[i].Year);

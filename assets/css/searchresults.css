@@ -1,5 +1,6 @@
-h2 {
-    
+.searchHeader {
+    text-align: center;
+    color: white;
 }
 
 #result-content {
@@ -8,9 +9,13 @@ h2 {
 
 #result-text {
     text-align: center;
-    color: white;
+    color: red;
 }
 
 .searchTitle {
     text-align: center;
+}
+
+.poster {
+   
 }
