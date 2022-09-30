@@ -7,6 +7,7 @@ let previousSearch = document.getElementById('previous-search');
 let resultsEl = $("#result-content");
 let searchTitleEl = $("#result-text");
 var clearBtn = document.getElementById('clearBtn')
+var slides = document.querySelector(".glide__slides")
 
 var watchlist = [];
 
@@ -121,7 +122,23 @@ function startApp() {
   console.log("watchlist retrieved from storage")
 }
 
+
+function displayMovieCards(){
+  for( var i = 0; i < watchlist.length; i++ ) {
+    var title = watchlist[i].title;
+    var picture = watchlist[i].picture;
+    
+    var movieCard = document.createElement(li)
+  }
+  
+}
+
+
 startApp()
+
+displayMovieCards()
+
+
 
 // add an event listener for when someone CLICKS in the previous Search area
 // see if the item clicked was a button 
