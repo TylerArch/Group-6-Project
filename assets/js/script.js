@@ -6,6 +6,7 @@ let movieSearch = [];
 let previousSearch = document.getElementById('previous-search');
 let resultsEl = $("#result-content");
 let searchTitleEl = $("#result-text");
+var clearBtn = document.getElementById('clearBtn')
 
 //Add Api
 const options = {
@@ -16,10 +17,9 @@ const options = {
   }
 };
 
-function getMovie(event) {
+function getMovie(event, previousMovie) {
   event.preventDefault();
-  const movie = movieInput.value
-
+  let movie = movieInput.value || previousMovie
   console.log(movie)
   movieSearch.push(movie)
   storeSearch()
@@ -85,21 +85,23 @@ function renderSearch() {
     //pTag.textContent = singleSearch;
     //div.appendChild(pTag);
     //div.appendChild(btn);
-    btn.setAttribute("data-movie", movieSearch [i]);
+    btn.setAttribute("data-movie", movieSearch[i]);
     previousSearch.appendChild(btn)
   }
 };
 
-previousSearch.addEventListener('submit', function (event) {
-  movieInput.value="";
-  event.preventDefault();
-  var movieVal = movieInput.value.trim();
-  movieSearch.push(movieVal)
-  storeSearch()
-  renderSearch()
+previousSearch.addEventListener('click', function (event) {
+  movieInput.value = "";
+  console.log('click', event.target.getAttribute("data-movie"))
+  getMovie(event, event.target.getAttribute("data-movie"))
 });
 
-renderSearch()
+
+//Clear list on HTML
+clearBtn.addEventListener("click", function () {
+  previousSearch.innerHTML = "";
+  movieSearch = [];
+});
 
 // add an event listener for when someone CLICKS in the previous Search area
 // see if the item clicked was a button 
