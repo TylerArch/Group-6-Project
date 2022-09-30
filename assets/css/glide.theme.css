@@ -21,7 +21,7 @@
   outline: none;
 }
 .glide__arrow:hover {
-  border-color: white;
+  border-color: #077187;
 }
 .glide__arrow--left {
   left: 2em;
