@@ -42,10 +42,10 @@ function getMovie(event, previousMovie) {
         //console.log(response.Search);
         let resultText = (response.Search[i].Title + " " + response.Search[i].Year);
         let textEl = $('<p>').text(resultText).addClass('col-12 searchTitle');
-        let posterEl = $('<img>').attr("src", response.Search[i].Poster).addClass('col -12 poster');
+        let posterEl = $('<img>').attr("src", response.Search[i].Poster).addClass('col-12 poster');
         let saveToWatchListButton = $("<button>").text("Add to watchlist");
 
-        let resultEl = $('<div>').append(textEl).append(posterEl).append(saveToWatchListButton).on("click", addToWatchList);
+        let resultEl = $('<div>').append(textEl).append(posterEl).append(saveToWatchListButton).on("click", addToWatchList).addClass('col-12 searchElgit');
         resultEl;
         resultsEl.append(resultEl);
       }
