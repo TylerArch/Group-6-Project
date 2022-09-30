@@ -34,4 +34,14 @@ body {
 
 }
 
+#get-info {
+    background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(1,11,20,1) 34%, rgba(1,22,39,1) 77%, rgba(81,218,246,1) 100%);
+    color: white;
+}
 
+.delete-me {
+    background-color: red;
+    border: 2px solid black;
+    width: 30px;
+    
+}

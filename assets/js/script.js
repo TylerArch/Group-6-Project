@@ -19,18 +19,27 @@ const options = {
   }
 };
 
-function getMovie(event, previousMovie) {
-  event.preventDefault();
-  let movie = movieInput.value || previousMovie
-  console.log(movie)
-  movieSearch.push(movie)
-  storeSearch()
-  renderSearch()
+function getMovieAndSearch(event) {
+  if (event) event.preventDefault()
+  console.log(event.target)
 
-  fetch(`https://movie-database-alternative.p.rapidapi.com/?s=${movie}&r=json&page=1`, options)
+  let movieName
+  if (event.target.getAttribute("id") === "searchForm") {
+    movieName = movieInput.value
+    if (!movieSearch.includes(movieName)) movieSearch.push(movieName)
+    storeSearch()
+    renderSearch()
+  } else if (event.target.getAttribute("id") === "get-info") {
+    movieName = event.target.getAttribute("data-movie")
+  }
+  getMovie(movieName)
+}
+
+function getMovie(movieName) {
+  fetch(`https://movie-database-alternative.p.rapidapi.com/?s=${movieName}&r=json&page=1`, options)
     .then(response => response.json())
-    .then(response => {
-      searchTitleEl.text(" " + movie);
+    .then(data => {
+      searchTitleEl.text(" " + movieName);
       //console.log(response.Search[0]);
       //let resultEl = $('<div>').text('test');
       const list = document.getElementById("result-content");
@@ -38,23 +47,26 @@ function getMovie(event, previousMovie) {
       while (list.hasChildNodes()) {
         list.removeChild(list.firstChild);
       }
-      for (var i = 0; i < response.Search.length; i++) {
+
+      for (var i = 0; i < data.Search.length; i++) {
         //console.log(response.Search);
-        let resultText = (response.Search[i].Title + " " + response.Search[i].Year);
+        let resultText = (data.Search[i].Title + " " + data.Search[i].Year);
         let textEl = $('<p>').text(resultText).addClass('col-12 searchTitle');
-        let posterEl = $('<img>').attr("src", response.Search[i].Poster).addClass('col -12 poster');
+        let posterEl = $("<span>")
+        if (data.Search[i].Poster !== "N/A") {
+          posterEl = $('<img>').attr("src", data.Search[i].Poster).addClass('col -12 poster');
+        }
         let saveToWatchListButton = $("<button>").text("Add to watchlist");
 
         let resultEl = $('<div>').append(textEl).append(posterEl).append(saveToWatchListButton).on("click", addToWatchList);
-        resultEl;
+        // resultEl;
         resultsEl.append(resultEl);
       }
     })
     .catch(err => console.error(err));
-
 }
 
-searchForm.addEventListener('submit', getMovie);
+searchForm.addEventListener('submit', getMovieAndSearch);
 
 let addToWatchList = (event) => {
   event.preventDefault();
@@ -76,32 +88,36 @@ function storeSearch() {
 };
 
 function renderSearch() {
-  var prevSearch = JSON.parse(localStorage.getItem("movieSearch"))
-  if (prevSearch) {
-    movieSearch = [...new Set(prevSearch)]
-  } else {
-    movieSearch = []
-  }
+  
   previousSearch.innerHTML = "";
   for (var i = 0; i < movieSearch.length; i++) {
     var singleSearch = movieSearch[i];
     var btn = document.createElement("button");
+    btn.setAttribute("class", "get-info");
+    btn.setAttribute("id", "get-info");
+    var btn2 = document.createElement("button");
     btn.textContent = singleSearch;
-    //var pTag = document.createElement("p");
-    //var btn = document.createElement("button");
-    //btn.textContent = "Add To Watch List"
-    //pTag.textContent = singleSearch;
-    //div.appendChild(pTag);
-    //div.appendChild(btn);
+    btn2.textContent = "X"
     btn.setAttribute("data-movie", movieSearch[i]);
+    btn2.setAttribute("class", "delete-me");
+    btn2.setAttribute("data-idx", i);
     previousSearch.appendChild(btn)
+    previousSearch.appendChild(btn2)
   }
 };
 
 previousSearch.addEventListener('click', function (event) {
-  movieInput.value = "";
-  console.log('click', event.target.getAttribute("data-movie"))
-  getMovie(event, event.target.getAttribute("data-movie"))
+  if (event.target.matches(".delete-me")) {
+    const idx = event.target.getAttribute("data-idx");
+    movieSearch.splice(idx, 1);
+    renderSearch();
+    storeSearch();
+  } else if (event.target.matches(".get-info")) {
+    // const movieName = event.target.getAttribute("data-movie")
+    movieInput.value = "";
+    // console.log('click', event.target.getAttribute("data-movie"))
+    getMovieAndSearch(event)
+  }
 });
 
 
@@ -117,8 +133,11 @@ function updateWatchlist() {
 
 function startApp() {
   watchlist = JSON.parse(localStorage.getItem("watchlist"))
-  if( !watchlist ) watchlist = []
+  movieSearch = JSON.parse(localStorage.getItem("movieSearch"))
+  if (!watchlist) watchlist = []
+  if (!movieSearch) movieSearch = []
   console.log("watchlist retrieved from storage")
+  renderSearch()
 }
 
 startApp()
