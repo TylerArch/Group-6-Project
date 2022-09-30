@@ -6,10 +6,27 @@
 
 /* Body HTML */
 
+html, body {
+    height: 100vh;
+}
+
 body {
     padding: 50px;
-    background-color: #0a0a0a;
-    color: #f2f2f2;
+    background: rgb(1,22,39);
+    background: linear-gradient(0deg, rgba(1,22,39,1) 48%, rgba(81,218,246,1) 100%);
     
 }
+
+#search-btn {
+    background-color: #077187;
+    color: #c1cad6;
+    
+}
+
+#search-btn:hover {
+    background-color: #51daf6;
+    color: black;
+
+}
+
 
