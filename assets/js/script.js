@@ -52,32 +52,36 @@ function storeSearch() {
 function renderSearch() {
   var prevSearch = JSON.parse(localStorage.getItem("movieSearch"))
   if (prevSearch) {
-    movieSearch = prevSearch
+    movieSearch = [...new Set(prevSearch)]
   } else {
     movieSearch = []
   }
   previousSearch.innerHTML = "";
   for (var i = 0; i < movieSearch.length; i++) {
     var singleSearch = movieSearch[i];
-    var div = document.createElement("div");
-    var pTag = document.createElement("p");
     var btn = document.createElement("button");
-    btn.textContent = "Add To Watch List"
-    pTag.textContent = singleSearch;
-    div.appendChild(pTag);
-    div.appendChild(btn);
-    btn.setAttribute("data-index", i);
-    previousSearch.appendChild(div)
+    btn.textContent = singleSearch;
+    //var pTag = document.createElement("p");
+    //var btn = document.createElement("button");
+    //btn.textContent = "Add To Watch List"
+    //pTag.textContent = singleSearch;
+    //div.appendChild(pTag);
+    //div.appendChild(btn);
+    btn.setAttribute("data-movie", movieSearch [i]);
+    previousSearch.appendChild(btn)
   }
 };
 
 previousSearch.addEventListener('submit', function (event) {
+  movieInput.value="";
   event.preventDefault();
   var movieVal = movieInput.value.trim();
   movieSearch.push(movieVal)
   storeSearch()
   renderSearch()
 });
+
+renderSearch()
 
 // add an event listener for when someone CLICKS in the previous Search area
 // see if the item clicked was a button 
