@@ -1,3 +1,16 @@
+h2 {
+    
+}
+
 #result-content {
     color: white;
+}
+
+#result-text {
+    text-align: center;
+    color: white;
+}
+
+.searchTitle {
+    text-align: center;
 }
