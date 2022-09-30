@@ -8,6 +8,8 @@ let resultsEl = $("#result-content");
 let searchTitleEl = $("#result-text");
 var clearBtn = document.getElementById('clearBtn')
 
+var watchlist = [];
+
 //Add Api
 const options = {
   method: 'GET',
@@ -40,7 +42,7 @@ function getMovie(event, previousMovie) {
         //console.log(response.Search);
         let resultText = (response.Search[i].Title + " " + response.Search[i].Year);
         let textEl = $('<p>').text(resultText).addClass('col-12 searchTitle');
-        let posterEl = $('<img>').attr("src", response.Search[i].Poster);
+        let posterEl = $('<img>').attr("src", response.Search[i].Poster).addClass('col -12 poster');
         let saveToWatchListButton = $("<button>").text("Add to watchlist");
 
         let resultEl = $('<div>').append(textEl).append(posterEl).append(saveToWatchListButton).on("click", addToWatchList);
@@ -57,13 +59,14 @@ searchForm.addEventListener('submit', getMovie);
 let addToWatchList = (event) => {
   event.preventDefault();
 
-  let watchlist = localStorage.getItem("watchlist");
-  watchlist = watchlist ? watchlist.split(',') : [];
-  let title = event.currentTarget.children[0].textContent;
-  let picture = event.currentTarget.children[1].src;
-  watchlist.push([title, picture])
-
-  localStorage.setItem("watchlist", watchlist.toString());
+  let movieObject = {
+    title: event.currentTarget.children[0].textContent,
+    picture: event.currentTarget.children[1].src
+  }
+  //let title = event.currentTarget.children[0].textContent;
+  //let picture = event.currentTarget.children[1].src;
+  watchlist.push(movieObject)
+  updateWatchlist()
 }
 
 
@@ -108,6 +111,18 @@ clearBtn.addEventListener("click", function () {
   movieSearch = [];
 });
 
+function updateWatchlist() {
+  localStorage.setItem("watchlist", JSON.stringify(watchlist));
+}
+
+function startApp() {
+  watchlist = JSON.parse(localStorage.getItem("watchlist"))
+  if( !watchlist ) watchlist = []
+  console.log("watchlist retrieved from storage")
+}
+
+startApp()
+
 // add an event listener for when someone CLICKS in the previous Search area
 // see if the item clicked was a button 
 // get the custom attribute of that button -- that will tell you where that movie is in the array
@@ -130,4 +145,3 @@ clearBtn.addEventListener("click", function () {
 //Event listener for search button click  --DONE
 //Event Listener for  going to my playlist button click
 //Event listener to add a movie to playlist --DONE
-
