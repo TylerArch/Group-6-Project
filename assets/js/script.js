@@ -115,10 +115,10 @@ clearBtn.addEventListener("click", function () {
 
 
 //Functions
-//function to get API
-//function to populate search results
-//function to add button for adding to playlist
-//function to store playlist in local storage
+//function to get API --DONE
+//function to populate search results  --DONE
+//function to add button for adding to playlist --DONE
+//function to store playlist in local storage --DONE
 //function to remove from playlist
 //function to plug images from movie in to scrolling playlist
 
@@ -127,7 +127,7 @@ clearBtn.addEventListener("click", function () {
 
 
 //Event Listeners
-//Event listener for search button click
+//Event listener for search button click  --DONE
 //Event Listener for  going to my playlist button click
-//Event listener to add a movie to playlist
+//Event listener to add a movie to playlist --DONE
 
