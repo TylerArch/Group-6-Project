@@ -7,7 +7,7 @@ let previousSearch = document.getElementById('previous-search');
 let resultsEl = $("#result-content");
 let searchTitleEl = $("#result-text");
 var clearBtn = document.getElementById('clearBtn')
-var slides = document.querySelector(".glide__slides")
+var slides = document.getElementById("slides")
 
 var watchlist = [];
 
@@ -128,7 +128,12 @@ function displayMovieCards(){
     var title = watchlist[i].title;
     var picture = watchlist[i].picture;
     
-    var movieCard = document.createElement(li)
+    // var movieCard = $("<li class=glide__slide>" + "<img src=" + picture + "</li>")
+ 
+    // var movieCard = $("<li>").addClass("glide__slide").append("<img>").attr("src", picture)
+
+    // slides.append(movieCard)
+    console.log(picture)
   }
   
 }
@@ -137,6 +142,8 @@ function displayMovieCards(){
 startApp()
 
 displayMovieCards()
+
+
 
 
 
