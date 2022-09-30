@@ -6,6 +6,7 @@ let movieSearch = [];
 let previousSearch = document.getElementById('previous-search');
 let resultsEl = $("#result-content");
 let searchTitleEl = $("#result-text");
+var clearBtn = document.getElementById('clearBtn')
 
 //Add Api
 const options = {
@@ -16,10 +17,9 @@ const options = {
   }
 };
 
-function getMovie(event) {
+function getMovie(event, previousMovie) {
   event.preventDefault();
-  const movie = movieInput.value
-
+  let movie = movieInput.value || previousMovie
   console.log(movie)
   movieSearch.push(movie)
   storeSearch()
@@ -70,31 +70,37 @@ function storeSearch() {
 function renderSearch() {
   var prevSearch = JSON.parse(localStorage.getItem("movieSearch"))
   if (prevSearch) {
-    movieSearch = prevSearch
+    movieSearch = [...new Set(prevSearch)]
   } else {
     movieSearch = []
   }
   previousSearch.innerHTML = "";
   for (var i = 0; i < movieSearch.length; i++) {
     var singleSearch = movieSearch[i];
-    var div = document.createElement("div");
-    var pTag = document.createElement("p");
     var btn = document.createElement("button");
-    btn.textContent = "Add To Watch List"
-    pTag.textContent = singleSearch;
-    div.appendChild(pTag);
-    div.appendChild(btn);
-    btn.setAttribute("data-index", i);
-    previousSearch.appendChild(div)
+    btn.textContent = singleSearch;
+    //var pTag = document.createElement("p");
+    //var btn = document.createElement("button");
+    //btn.textContent = "Add To Watch List"
+    //pTag.textContent = singleSearch;
+    //div.appendChild(pTag);
+    //div.appendChild(btn);
+    btn.setAttribute("data-movie", movieSearch[i]);
+    previousSearch.appendChild(btn)
   }
 };
 
-previousSearch.addEventListener('submit', function (event) {
-  event.preventDefault();
-  var movieVal = movieInput.value.trim();
-  movieSearch.push(movieVal)
-  storeSearch()
-  renderSearch()
+previousSearch.addEventListener('click', function (event) {
+  movieInput.value = "";
+  console.log('click', event.target.getAttribute("data-movie"))
+  getMovie(event, event.target.getAttribute("data-movie"))
+});
+
+
+//Clear list on HTML
+clearBtn.addEventListener("click", function () {
+  previousSearch.innerHTML = "";
+  movieSearch = [];
 });
 
 // add an event listener for when someone CLICKS in the previous Search area
