@@ -5,6 +5,7 @@ var searchForm = document.getElementById('searchForm')
 let movieSearch = [];
 let previousSearch = document.getElementById('previous-search');
 let resultsEl = $("#result-content");
+let searchTitleEl = $("#result-text");
 
 //Add Api
 const options = {
@@ -27,15 +28,17 @@ function getMovie(event) {
   fetch(`https://movie-database-alternative.p.rapidapi.com/?s=${movie}&r=json&page=1`, options)
     .then(response => response.json())
     .then(response => {
+      searchTitleEl.text(" " + movie);
       //console.log(response.Search[0]);
       //let resultEl = $('<div>').text('test');
       for (var i = 0; i < response.Search.length; i++) {
         //console.log(response.Search);
         let resultText = (response.Search[i].Title + " " + response.Search[i].Year);
-        let poster = $('<img>').attr("src", response.Search[i].Poster);
-        let saveToWatchListButton = $("<button>").text("Save");
+        let textEl = $('<p>').text(resultText).addClass('col-12 searchTitle');
+        let posterEl = $('<img>').attr("src", response.Search[i].Poster);
+        let saveToWatchListButton = $("<button>").text("Add to watchlist");
 
-        let resultEl = $('<div>').text(resultText).append(poster).append(saveToWatchListButton).on("click", addToWatchList);
+        let resultEl = $('<div>').append(textEl).append(posterEl).append(saveToWatchListButton).on("click", addToWatchList);
         resultEl;
         resultsEl.append(resultEl);
       }
@@ -47,8 +50,15 @@ function getMovie(event) {
 searchForm.addEventListener('submit', getMovie);
 
 let addToWatchList = (event) => {
-  console.log(event.find('<div>'));
- // localStorage.setItem("watchlist", event.);
+  event.preventDefault();
+
+  let watchlist = localStorage.getItem("watchlist");
+  watchlist = watchlist ? watchlist.split(',') : [];
+  let title = event.currentTarget.children[0].textContent;
+  let picture = event.currentTarget.children[1].src;
+  watchlist.push([title, picture])
+
+  localStorage.setItem("watchlist", watchlist.toString());
 }
 
 
