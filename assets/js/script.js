@@ -30,21 +30,26 @@ function getMovie(event) {
       //console.log(response.Search[0]);
       //let resultEl = $('<div>').text('test');
       for (var i = 0; i < response.Search.length; i++) {
-        console.log(response.Search);
+        //console.log(response.Search);
         let resultText = (response.Search[i].Title + " " + response.Search[i].Year);
         let poster = $('<img>').attr("src", response.Search[i].Poster);
-        let resultEl = $('<div>').text(resultText);
         let saveToWatchListButton = $("<button>").text("Save");
-        resultsEl.append(resultEl).append(poster).append(saveToWatchListButton);
+
+        let resultEl = $('<div>').text(resultText).append(poster).append(saveToWatchListButton).on("click", addToWatchList);
+        resultEl;
+        resultsEl.append(resultEl);
       }
-      
-      //resultsEl.append($('<div>').text(response));
     })
     .catch(err => console.error(err));
 
 }
 
 searchForm.addEventListener('submit', getMovie);
+
+let addToWatchList = (event) => {
+  console.log(event.find('<div>'));
+ // localStorage.setItem("watchlist", event.);
+}
 
 
 //Previous movie search saved to local storage
