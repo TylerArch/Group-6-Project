@@ -17,5 +17,10 @@
 }
 
 .poster {
-   
+    height: 426px;
+    width: 320px;
+}
+
+.searchEl {
+    align-items: center;
 }
