@@ -147,11 +147,15 @@ function displayMovieCards(){
     var title = watchlist[i].title;
     var picture = watchlist[i].picture;
     
+
+
+    var image = $('<img>').attr("src", picture);
+    var movieCard = $("<li>").addClass("glide__slide").append(image);
     // var movieCard = $("<li class=glide__slide>" + "<img src=" + picture + "</li>")
  
     // var movieCard = $("<li>").addClass("glide__slide").append("<img>").attr("src", picture)
 
-    // slides.append(movieCard)
+    slides.append(movieCard + image)
     console.log(picture)
   }
   
