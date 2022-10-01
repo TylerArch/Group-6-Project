@@ -153,29 +153,36 @@ function displayMovieCards(){
     var picture = watchlist[i].picture;
     
 
-    var image = document.createElement("img");
-    image.src = picture;
     var movieCard = document.createElement("li");
     movieCard.setAttribute("class", "glide__slide");
+    var image = document.createElement("img");
+    image.src = picture;
 
-    var final = movieCard + image
+    // movieCard.innerHTML = "<img src=" + picture + ">"
+    movieCard.appendChild(image)
+    // var final = movieCard + image
 
-    // var movieCard = $()
+    // // var movieCard = $()
 
-    $('#slides').append('<li>' + final + '</li>');
+    // $('#slides').append('<li>' + final + '</li>');
 
 
 //      var mes = $('#message').val().replace('(<3)', '<img src="pics/lol/love.png">');
 //   $('#discussion').append('<li>' + mes + '</li>');
 
-    // var img = $('<img>').attr("src", picture);
-    // var movieCard = $("<li>").addClass("glide__slide" + img)
-    // // var movieCard = $("<li class=glide__slide>" + "<img src=" + picture + "</li>")
- 
-    // // var movieCard = $("<li>").addClass("glide__slide").append("<img>").attr("src", picture)
 
-    // slides.append(movieCard)
-    // console.log(picture)
+
+//     var img = $('<img>').attr("src", picture);
+//     var movieCard = $("<li>").addClass("glide__slide" + img)
+// console.log(movieCard);
+
+
+    // var movieCard = $("<li class=glide__slide>" + "<img src=" + picture + "</li>")
+ 
+    // var movieCard = $("<li>").addClass("glide__slide").append("<img>").attr("src", picture)
+
+    slides.append(movieCard)
+    console.log(movieCard)
   }
   
 }
