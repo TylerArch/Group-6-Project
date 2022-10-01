@@ -124,6 +124,7 @@ previousSearch.addEventListener('click', function (event) {
 
 //Clear list on HTML
 clearBtn.addEventListener("click", function () {
+  localStorage.removeItem("movieSearch");
   previousSearch.innerHTML = "";
   movieSearch = [];
 });

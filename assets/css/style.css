@@ -23,9 +23,19 @@ body {
 }
 
 #search-btn {
-    background-color: #077187;
-    color: #c1cad6;
+    background-color: #189eb9;
+    color: white;
     
+}
+
+#clearBtn {
+    background-color: #189eb9;
+    color: white;
+}
+
+#clearBtn:hover {
+    background-color: #51daf6;
+    color: black;
 }
 
 #search-btn:hover {
@@ -43,5 +53,5 @@ body {
     background-color: red;
     border: 2px solid black;
     width: 30px;
-    
+
 }
