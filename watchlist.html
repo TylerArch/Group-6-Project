@@ -19,16 +19,12 @@
           <ul class="glide__slides" id="slides">
             <!-- Dynamically created img files should be placed in this section -->
             <!-- sample images -->
-            <li class="glide__slide">
-              1
-              <img src="https://via.placeholder.com/300x426" alt="" />
+            <li class="glide__slide"><img src="https://via.placeholder.com/300x426" alt="" />
             </li>
           </ul>
         </div>
         <div class="glide__arrows" data-glide-el="controls">
-          <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-            prev
-          </button>
+          <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
           <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
             next
           </button>
@@ -36,20 +32,22 @@
       </div>
     </div>
     <!-- dirty problemsolvers -->
-    <div id="searchForm"></div>
+    <!-- <div id="searchForm"></div>
     <div id="previous-search"></div>
-    <div id="clearBtn"></div>
+    <div id="clearBtn"></div> -->
 
     <!-- Script settings for Glide -->
+    <script src="./assets/js/glide.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+ 
     <script>
       const config = {
         type: "carousel",
         perView: 5,
-        peek: {
-          before: 10,
-          after: 70,
-        },
+        // peek: {
+        //   before: 10,
+        //   after: 70,
+        // },
         focusAt: "center",
         breakpoints: {
           1650: {
@@ -70,12 +68,13 @@
         keyboard: true,
         perTouch: false,
         dragThreshold: 40,
-        throttle: 0,
+        throttle: 50,
         animationTimingFunc: "ease-in-out",
         animationDuration: 800,
       };
       new Glide(".glide", config).mount();
-    </script>
+      </script>
+      
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script
@@ -83,6 +82,6 @@
       integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
       crossorigin="anonymous"
     ></script>
-    <script src="./assets/js/script.js"></script>
+    <!-- <script src="./assets/js/watchlist.js"></script> -->
   </body>
 </html>
