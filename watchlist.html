@@ -19,35 +19,38 @@
           <ul class="glide__slides" id="slides">
             <!-- Dynamically created img files should be placed in this section -->
             <!-- sample images -->
-            <li class="glide__slide"><img src="https://via.placeholder.com/300x426" alt="" />
-            </li>
+            <li class="glide__slide"></li>
           </ul>
         </div>
         <div class="glide__arrows" data-glide-el="controls">
-          <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+          <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+            prev
+          </button>
           <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
             next
           </button>
         </div>
       </div>
     </div>
-    <!-- dirty problemsolvers -->
-    <!-- <div id="searchForm"></div>
-    <div id="previous-search"></div>
-    <div id="clearBtn"></div> -->
 
     <!-- Script settings for Glide -->
-    <script src="./assets/js/glide.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
- 
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.min.js"
+      integrity="sha512-2sI5N95oT62ughlApCe/8zL9bQAXKsPPtZZI2KE3dznuZ8HpE2gTMHYzyVN7OoSPJCM1k9ZkhcCo3FvOirIr2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
     <script>
-      const config = {
+      let config = {
         type: "carousel",
-        perView: 5,
-        // peek: {
-        //   before: 10,
-        //   after: 70,
-        // },
+        perView: 3,
+        gap: 10,
+        peek: {
+          before: 10,
+          after: 70,
+        },
         focusAt: "center",
         breakpoints: {
           1650: {
@@ -64,24 +67,23 @@
           },
         },
         autoplay: 2750,
-        hoverpause: true,
+        // hoverpause: true,
         keyboard: true,
-        perTouch: false,
-        dragThreshold: 40,
-        throttle: 50,
+        perTouch: 1,
+        throttle: 800,
+        animationDuration: 8000,
         animationTimingFunc: "ease-in-out",
-        animationDuration: 800,
       };
       new Glide(".glide", config).mount();
-      </script>
-      
+    </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./assets/js/watchlist.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
       integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
       crossorigin="anonymous"
     ></script>
-    <!-- <script src="./assets/js/watchlist.js"></script> -->
   </body>
 </html>
