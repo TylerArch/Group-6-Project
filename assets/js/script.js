@@ -74,8 +74,6 @@ let addToWatchList = (event) => {
     title: event.currentTarget.children[0].textContent,
     picture: event.currentTarget.children[1].src
   }
-  //let title = event.currentTarget.children[0].textContent;
-  //let picture = event.currentTarget.children[1].src;
   watchlist.push(movieObject)
   updateWatchlist()
 }
@@ -104,7 +102,6 @@ function renderSearch() {
     btn2.setAttribute("data-idx", i);
     li.append(btn, btn2);
     previousSearch.appendChild(li)
-    //previousSearch.appendChild(btn2)
   }
 };
 
@@ -115,7 +112,6 @@ previousSearch.addEventListener('click', function (event) {
     renderSearch();
     storeSearch();
   } else if (event.target.matches(".get-info")) {
-    // const movieName = event.target.getAttribute("data-movie")
     movieInput.value = "";
     getMovieAndSearch(event)
   }
@@ -141,55 +137,19 @@ function startApp() {
   renderSearch()
 }
 
-
 function displayMovieCards(){
   for( var i = 0; i < watchlist.length; i++ ) {
     var title = watchlist[i].title;
     var picture = watchlist[i].picture;
-    
-
-
     var image = $('<img>').attr("src", picture);
     var movieCard = $("<li>").addClass("glide__slide").append(image);
-    // var movieCard = $("<li class=glide__slide>" + "<img src=" + picture + "</li>")
- 
-    // var movieCard = $("<li>").addClass("glide__slide").append("<img>").attr("src", picture)
-
-    
     slides.append(movieCard + image)
   }
   
 }
-
 
 startApp()
 
 if (slides) {
   displayMovieCards();
 }
-
-
-
-
-// add an event listener for when someone CLICKS in the previous Search area
-// see if the item clicked was a button 
-// get the custom attribute of that button -- that will tell you where that movie is in the array
-
-
-
-//Functions
-//function to get API --DONE
-//function to populate search results  --DONE
-//function to add button for adding to playlist --DONE
-//function to store playlist in local storage --DONE
-//function to remove from playlist
-//function to plug images from movie in to scrolling playlist
-
-
-
-
-
-//Event Listeners
-//Event listener for search button click  --DONE
-//Event Listener for  going to my playlist button click
-//Event listener to add a movie to playlist --DONE
