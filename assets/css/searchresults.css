@@ -1,6 +1,8 @@
 .searchHeader {
     text-align: center;
     color: white;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 #result-content {
@@ -23,4 +25,8 @@
 
 .searchEl {
     align-items: center;
+}
+
+.searchResult {
+    margin-bottom: 30px;
 }

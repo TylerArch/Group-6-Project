@@ -1,9 +1,9 @@
 .glide__arrow {
   position: absolute;
   display: block;
-  top: 105%;
+  top: 110%;
   z-index: 2;
-  color: white;
+  color: #DADFE7;
   text-transform: uppercase;
   padding: 9px 12px;
   background-color: transparent;
@@ -21,7 +21,7 @@
   outline: none;
 }
 .glide__arrow:hover {
-  border-color: white;
+  border-color: #51daf6; 
 }
 .glide__arrow--left {
   left: 2em;
@@ -76,3 +76,4 @@
 }
 
 /*# sourceMappingURL=glide.theme.css.map */
+

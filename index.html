@@ -18,37 +18,44 @@
   <!--Jumbotron for website intro-->
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <h1 class="display-4">Movie </h1>
-      <p class="lead">Use this website to create a list of movies to watch</p>
+      <div class="jumboText col-12 d-flex flex-column">
+        <h1 class="display-4 d-flex justify-content-center">Movie Watchlist Maker</h1>
+        <p class="lead d-flex justify-content-center">Use this website to create a list of movies to watch</p>
+      </div>
     </div>
   </div>
 
   <!--Search for movie-->
   <div class="container">
-    <div class="row">
-      <div id="content-left" class="col-sm-3">
+    <div class="row justify-content-center">
+      <!-- Add styling to script.js -->
+      <div id="content-left" class="col-12 col-sm-3 d-flex flex-column justify-content-center align-items-center">
         <form id="searchForm">
           <label for="search-movie"></label>
-          <div class="form-row">
+          <div class="form-row justify-content-center">
             <input id="search-movie" class="form-control" placeholder="Search movie"></input>
-            <input class="btn btn-primary" id="search-btn" type="submit" value="search">
+            <input class="btn btn-primary" id="search-btn" type="submit" value="search"></input>
 
             <button id="clearBtn" type="button" class="btn btn-primary btn-sm">Clear list</button>
 
           </div>
         </form>
-
-        <ul id="previous-search" class="list-group list-group-flush">
+        <!-- Add styling to script.js -->
+        <ul id="previous-search" class="list-group list-group-flush d-flex flex-row">
         </ul>
         <!-- Button to go to playlist -->
-        <button class="btn btn-primary" onclick= "location.href='/watchlist.html';" id="my-playlist" >My Playlist</button>
+        <button class="btn btn-primary" onclick= "location.href='./watchlist.html';" id="my-playlist" >My Playlist</button>
+<<<<<<< HEAD
+=======
+      </div>
+      <div class="col-12 p-3">
+        <h2 class="col-12 searchHeader">Search results for<span id="result-text"></span></h2>
+        <div class="d-flex flex-row align-items-center justify-content-center flex-wrap" id="result-content"></div>
+>>>>>>> main
       </div>
     </div>
     <!-- search results -->
-    <div class="col-12 p-3">
-      <h2 class="col-12 searchHeader">Search results for<span id="result-text"></span></h2>
-      <div id="result-content"></div>
-    </div>
+    
   </div>
 
   <!--Add search results from API display in block-->
