@@ -93,6 +93,7 @@ function renderSearch() {
   previousSearch.innerHTML = "";
   for (var i = 0; i < movieSearch.length; i++) {
     var singleSearch = movieSearch[i];
+    let li = document.createElement("li");
     var btn = document.createElement("button");
     btn.setAttribute("class", "get-info");
     btn.setAttribute("id", "get-info");
@@ -102,8 +103,9 @@ function renderSearch() {
     btn.setAttribute("data-movie", movieSearch[i]);
     btn2.setAttribute("class", "delete-me");
     btn2.setAttribute("data-idx", i);
-    previousSearch.appendChild(btn)
-    previousSearch.appendChild(btn2)
+    li.append(btn, btn2);
+    previousSearch.appendChild(li)
+    //previousSearch.appendChild(btn2)
   }
 };
 
