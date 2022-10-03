@@ -28,24 +28,24 @@
     <div class="row">
       <div id="content-left" class="col-sm-3">
         <form id="searchForm">
-          <label for="search-movie">Search for a movie</label>
+          <label for="search-movie"></label>
           <div class="form-row">
             <input id="search-movie" class="form-control" placeholder="Search movie"></input>
             <input class="btn btn-primary" id="search-btn" type="submit" value="search">
 
             <button id="clearBtn" type="button" class="btn btn-primary btn-sm">Clear list</button>
+
           </div>
         </form>
-        
+
         <ul id="previous-search" class="list-group list-group-flush">
         </ul>
-      
+        <!-- Button to go to playlist -->
+        <button class="btn btn-primary" onclick= "location.href='file:///Users/alex/bootcamp/projects/Group-6-Project/watchlist.html';" id="my-playlist" >My Playlist</button>
+
       </div>
     </div>
   </div>
-
-  <!-- Button to go to playlist -->
-  <button class="btn btn-primary" id="My Playlist">My Playlist</button>
 
   <!-- search results -->
   <div class="col-12 p-3">
