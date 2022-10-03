@@ -1,16 +1,27 @@
 html, body {
-  height: 75vh;
-  width: 95vw;
-  background-color: #011627;
-
+  height: 100vh;
+  background-color: #021627;
 }
 
 .container {
-  height: 100%;
-  width: 100%;
+  /* height: 100%;
+  width: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+}
 
+#bannertitle {
+  font-family: 'Chango';
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: 400;
+  color: #dadfe7;
+  z-index: 5;
+  padding: 60px;
+
+}
+#return{
+ 
 }
