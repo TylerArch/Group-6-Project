@@ -26,4 +26,4 @@ Alex O., Tyler O., and Brent G.
 
 ## License
 
-No licensing was used in the creation of this Weather Dashboard.
+No licensing was used in the creation of this Playlist Creator.
