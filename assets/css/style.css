@@ -30,28 +30,78 @@ body {
 }
 
 #search-btn {
-    background-color: #189eb9;
-    color: white;
+    background-color: #3DD6F5;
+    color: black;
+    font-weight: bold;
+    border-color: transparent;
 }
 
+#search-btn:hover {
+    background-color: orange;
+    color: black;
+    font-weight: bold;
+    border-color: transparent;
+}
+#search-btn:active {
+    background-color: orange;
+    color: black;
+    font-weight: bold;
+    border-color: transparent;
+    transform: scale(95%);
+}
+
+
 #clearBtn {
-    background-color: #189eb9;
-    color: white;
+    background-color: #3DD6F5;
+    color: black;
+    font-weight: bold;
     margin-left: 10px;
+    border-color: transparent;
+}
+#clearBtn:hover {
+    background-color: orange;
+    color: black;
+    font-weight: bold;
+    margin-left: 10px;
+    border-color: transparent;
+}
+#clearBtn:active {
+    background-color: orange;
+    color: black;
+    font-weight: bold;
+    margin-left: 10px;
+    border-color: transparent;
+    transform: scale(95%);
 }
 
 #my-playlist {
-    background-color: #189eb9;
-    color: white;
+    background-color: #3DD6F5;
+    color: black;
+    font-weight: bold;
+    border-color: transparent;
 }
-
+#my-playlist:hover {
+    background-color: orange;
+    color: black;
+    font-weight: bold;
+    border-color: transparent;
+}
+#my-playlist:active {
+    background-color: orange;
+    color: black;
+    font-weight: bold;
+    border-color: transparent;
+    transform: scale(95%);
+}
 button:focus{
     outline: none;
 }
 
 #get-info {
-    background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(1,11,20,1) 34%, rgba(1,22,39,1) 77%, rgba(81,218,246,1) 100%);
-    color: white;
+    background: #DADFE7;
+    color: black;
+    border: 2px solid transparent;
+    border-radius: 3px;
     width: fit-content;
 }
 
@@ -94,6 +144,6 @@ button:focus{
 }
 
 .saveToWatchButton {
-    background-color: #189eb9;
+    background-color: #3DD6F5;
     margin-top: 15px;
 }
