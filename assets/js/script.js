@@ -140,7 +140,6 @@ function startApp() {
   movieSearch = JSON.parse(localStorage.getItem("movieSearch"))
   if (!watchlist) watchlist = []
   if (!movieSearch) movieSearch = []
-  console.log("watchlist retrieved from storage")
   renderSearch()
 }
 
@@ -158,6 +157,7 @@ function displayMovieCards(){
  
     // var movieCard = $("<li>").addClass("glide__slide").append("<img>").attr("src", picture)
 
+    
     slides.append(movieCard + image)
     console.log(picture)
   }
@@ -167,8 +167,9 @@ function displayMovieCards(){
 
 startApp()
 
-displayMovieCards()
-
+if (slides) {
+  displayMovieCards();
+}
 
 
 
