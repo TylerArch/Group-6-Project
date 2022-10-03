@@ -55,9 +55,10 @@ function getMovie(movieName) {
           posterEl = $('<img>').attr("src", data.Search[i].Poster).addClass('col -12 poster');
         }
         let saveToWatchListButton = $("<button>").text("Add to watchlist");
+        saveToWatchListButton.addClass('saveToWatchButton btn btn-primary');
 
         let resultEl = $('<div>').append(textEl).append(posterEl).append(saveToWatchListButton).on("click", addToWatchList);
-        resultEl.addClass('searchResult');
+        resultEl.addClass('searchResult d-flex flex-column align-items-center');
         resultsEl.append(resultEl);
       }
     })

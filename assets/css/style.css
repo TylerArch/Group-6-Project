@@ -78,6 +78,10 @@ button:focus{
 }
 
 .prevSearch {
+    clear: both;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
     margin-right: 10px;
 }
 
@@ -87,4 +91,9 @@ button:focus{
 
 .jumboText {
     justify-self: center;
+}
+
+.saveToWatchButton {
+    background-color: #189eb9;
+    margin-top: 15px;
 }
