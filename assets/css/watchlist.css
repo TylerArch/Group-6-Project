@@ -2,7 +2,7 @@ html, body {
   height: 75vh;
   width: 95vw;
   background-color: #011627;
-  padding: 20px;
+
 }
 
 .container {
@@ -11,5 +11,6 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+  padding: 20px;
+
 }

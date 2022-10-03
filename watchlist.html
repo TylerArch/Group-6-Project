@@ -19,9 +19,9 @@
           <ul class="glide__slides" id="slides">
             <!-- Dynamically created img files should be placed in this section -->
             <!-- sample images -->
-            <li class="glide__slide">
+            <!-- <li class="glide__slide">
               <img src="https://via.placeholder.com/300x426" alt="" />
-            </li>
+            </li> -->
           </ul>
         </div>
         <div class="glide__arrows" data-glide-el="controls">
@@ -48,11 +48,12 @@
     <script>
       let config = {
         type: "carousel",
-        perView: 3,
+        perView: 5,
         peek: {
           before: 10,
           after: 70,
         },
+        startAt: 1,
         focusAt: "center",
         breakpoints: {
           1650: {
@@ -68,13 +69,12 @@
             perView: 1,
           },
         },
-        autoplay: 2750,
+        autoplay: 3000,
         hoverpause: true,
         keyboard: true,
-        perTouch: 1,
-        throttle: 800,
-        animationDuration: 8000,
-        animationTimingFunc: "ease-in-out",
+        // perTouch: 1,
+        animationTimingFunc: "ease-out",
+        animationDuration: 800,
       };
       new Glide(".glide", config).mount();
     </script>
