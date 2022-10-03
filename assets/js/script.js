@@ -22,7 +22,6 @@ const options = {
 
 function getMovieAndSearch(event) {
   if (event) event.preventDefault()
-  console.log(event.target)
 
   let movieName
   if (event.target.getAttribute("id") === "searchForm") {
@@ -41,7 +40,6 @@ function getMovie(movieName) {
     .then(response => response.json())
     .then(data => {
       searchTitleEl.text(" " + movieName);
-      //console.log(response.Search[0]);
       //let resultEl = $('<div>').text('test');
       const list = document.getElementById("result-content");
 
@@ -50,7 +48,6 @@ function getMovie(movieName) {
       }
 
       for (var i = 0; i < data.Search.length; i++) {
-        //console.log(response.Search);
         let resultText = (data.Search[i].Title + " " + data.Search[i].Year);
         let textEl = $('<p>').text(resultText).addClass('col-12 searchTitle');
         let posterEl = $("<span>")
@@ -58,9 +55,10 @@ function getMovie(movieName) {
           posterEl = $('<img>').attr("src", data.Search[i].Poster).addClass('col -12 poster');
         }
         let saveToWatchListButton = $("<button>").text("Add to watchlist");
+        saveToWatchListButton.addClass('saveToWatchButton btn btn-primary');
 
         let resultEl = $('<div>').append(textEl).append(posterEl).append(saveToWatchListButton).on("click", addToWatchList);
-        resultEl;
+        resultEl.addClass('searchResult d-flex flex-column align-items-center');
         resultsEl.append(resultEl);
       }
     })
@@ -94,6 +92,7 @@ function renderSearch() {
   for (var i = 0; i < movieSearch.length; i++) {
     var singleSearch = movieSearch[i];
     let li = document.createElement("li");
+    li.className = "prevSearch";
     var btn = document.createElement("button");
     btn.setAttribute("class", "get-info");
     btn.setAttribute("id", "get-info");
@@ -118,7 +117,6 @@ previousSearch.addEventListener('click', function (event) {
   } else if (event.target.matches(".get-info")) {
     // const movieName = event.target.getAttribute("data-movie")
     movieInput.value = "";
-    // console.log('click', event.target.getAttribute("data-movie"))
     getMovieAndSearch(event)
   }
 });
@@ -159,7 +157,6 @@ function displayMovieCards(){
 
     
     slides.append(movieCard + image)
-    console.log(picture)
   }
   
 }
