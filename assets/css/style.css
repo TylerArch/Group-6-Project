@@ -26,7 +26,7 @@ ul {
 body {
     padding: 50px;
     background: rgb(0,0,0);
-    background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(1,11,20,1) 34%, rgba(1,22,39,1) 77%, rgba(81,218,246,1) 100%);
+    background: linear-gradient(270deg, rgba(0,0,0,1), rgba(81,218,246,1));
 }
 
 #search-btn {
@@ -96,4 +96,8 @@ button:focus{
 .saveToWatchButton {
     background-color: #189eb9;
     margin-top: 15px;
+}
+
+input {
+    text-align: center;
 }

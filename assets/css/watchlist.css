@@ -1,6 +1,9 @@
-html, body {
+html {
   height: 100vh;
-  background-color: #021627;
+}
+
+body {
+  background: linear-gradient(270deg, rgba(0, 0, 0, 1), rgba(81, 218, 246, 1));
 }
 
 .container {
