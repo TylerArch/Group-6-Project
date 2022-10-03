@@ -60,7 +60,7 @@ function getMovie(movieName) {
         let saveToWatchListButton = $("<button>").text("Add to watchlist");
 
         let resultEl = $('<div>').append(textEl).append(posterEl).append(saveToWatchListButton).on("click", addToWatchList);
-        // resultEl;
+        resultEl;
         resultsEl.append(resultEl);
       }
     })
@@ -126,6 +126,7 @@ previousSearch.addEventListener('click', function (event) {
 
 //Clear list on HTML
 clearBtn.addEventListener("click", function () {
+  localStorage.removeItem("movieSearch");
   previousSearch.innerHTML = "";
   movieSearch = [];
 });

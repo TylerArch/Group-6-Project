@@ -74,18 +74,18 @@ const options = {
 
 // searchForm.addEventListener('submit', getMovieAndSearch);
 
-let addToWatchList = (event) => {
-  event.preventDefault();
+// let addToWatchList = (event) => {
+//   event.preventDefault();
 
-  let movieObject = {
-    title: event.currentTarget.children[0].textContent,
-    picture: event.currentTarget.children[1].src
-  }
-  //let title = event.currentTarget.children[0].textContent;
-  //let picture = event.currentTarget.children[1].src;
-  watchlist.push(movieObject)
-  updateWatchlist()
-}
+//   let movieObject = {
+//     title: event.currentTarget.children[0].textContent,
+//     picture: event.currentTarget.children[1].src
+//   }
+//   //let title = event.currentTarget.children[0].textContent;
+//   //let picture = event.currentTarget.children[1].src;
+//   watchlist.push(movieObject)
+//   updateWatchlist()
+// }
 
 
 //Previous movie search saved to local storage
@@ -142,7 +142,7 @@ function startApp() {
   movieSearch = JSON.parse(localStorage.getItem("movieSearch"))
   if (!watchlist) watchlist = []
   if (!movieSearch) movieSearch = []
-  console.log("watchlist retrieved from storage")
+  // console.log("watchlist retrieved from storage")
 //   renderSearch()
 }
 
@@ -160,6 +160,7 @@ function displayMovieCards(){
 
     // movieCard.innerHTML = "<img src=" + picture + ">"
     movieCard.appendChild(image)
+
     // var final = movieCard + image
 
     // // var movieCard = $()
@@ -182,7 +183,7 @@ function displayMovieCards(){
     // var movieCard = $("<li>").addClass("glide__slide").append("<img>").attr("src", picture)
 
     slides.append(movieCard)
-    console.log(movieCard)
+    // console.log(movieCard)
   }
   
 }
