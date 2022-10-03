@@ -27,9 +27,6 @@ function storeSearch() {
 };
 
 
-  
-
-
 
 function updateWatchlist() {
   localStorage.setItem("watchlist", JSON.stringify(watchlist));
@@ -56,9 +53,11 @@ function displayMovieCards(){
     movieCard.setAttribute("class", "glide__slide");
     var image = document.createElement("img");
     image.src = picture;
+    var remove = document.createElement("button");
+    remove.setAttribute("id", "clearBtn");
 
    
-    movieCard.appendChild(image, title.text)
+    movieCard.appendChild(image, remove)
     slides.append(movieCard)
  
   }

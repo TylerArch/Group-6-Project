@@ -12,12 +12,16 @@ html, body {
 }
 
 #bannertitle {
+  font-family: 'Chango';
   display: flex;
   justify-content: center;
   font-size: 40px;
-  font-weight: bold;
+  font-weight: 400;
   color: #dadfe7;
   z-index: 5;
   padding: 60px;
 
+}
+#return{
+ 
 }
