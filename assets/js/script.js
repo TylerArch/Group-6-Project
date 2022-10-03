@@ -54,7 +54,7 @@ function getMovie(movieName) {
         if (data.Search[i].Poster !== "N/A") {
           posterEl = $('<img>').attr("src", data.Search[i].Poster).addClass('col -12 poster');
         }
-        let saveToWatchListButton = $("<button>").text("Add to watchlist");
+        let saveToWatchListButton = $("<button>").text("Add to Watchlist");
         saveToWatchListButton.addClass('saveToWatchButton btn btn-primary');
 
         let resultEl = $('<div>').append(textEl).append(posterEl).append(saveToWatchListButton).on("click", addToWatchList);
