@@ -58,7 +58,7 @@ function displayMovieCards(){
     image.src = picture;
 
    
-    movieCard.appendChild(image)
+    movieCard.appendChild(image, title.text)
     slides.append(movieCard)
  
   }
