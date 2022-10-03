@@ -110,6 +110,12 @@ button:focus{
     border: 2px solid black;
     width: 30px;
 }
+.delete-me:active {
+    background-color: red;
+    border: 2px solid black;
+    width: 30px;
+    transform: scale(95%);
+}
 
 #search-movie {
     margin-bottom: 10px;
@@ -137,6 +143,7 @@ button:focus{
 
 .jumbotron {
     background-color: orange;
+    font-weight: bold;
 }
 
 .jumboText {
@@ -145,5 +152,23 @@ button:focus{
 
 .saveToWatchButton {
     background-color: #3DD6F5;
+    color: black;
+    font-weight: bold;
+    border-color: transparent;
     margin-top: 15px;
+}
+.saveToWatchButton:hover {
+    background-color: orange;
+    color: black;
+    font-weight: bold;
+    border-color: transparent;
+    margin-top: 15px;
+}
+.saveToWatchButton:active {
+    background-color: orange;
+    color: black;
+    font-weight: bold;
+    border-color: transparent;
+    margin-top: 15px;
+    transform: scale(95%);
 }
