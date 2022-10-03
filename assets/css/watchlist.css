@@ -36,6 +36,7 @@ html, body {
   color: black;
   cursor: pointer;
   margin-left: 20px;
+  transition: ease-in-out .2s;
 }
 #return:active{
   background-color: orange;
@@ -44,5 +45,5 @@ html, body {
   color: black;
   margin-left: 20px;
   transform: scale(95%);
-  
+
 }
