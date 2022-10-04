@@ -8,10 +8,9 @@ let resultsEl = $("#result-content");
 let searchTitleEl = $("#result-text");
 var clearBtn = document.getElementById('clearBtn')
 var slides = document.getElementById("slides")
-
 var watchlist = [];
 
-//Add Api
+// Options for API
 const options = {
   method: 'GET',
   headers: {
@@ -20,6 +19,8 @@ const options = {
   }
 };
 
+// Takes the movie title searched and creates an entry in the previous search list if not already there.
+// Then calls the fetch (getMovie) function
 function getMovieAndSearch(event) {
   if (event) event.preventDefault()
 
@@ -35,18 +36,19 @@ function getMovieAndSearch(event) {
   getMovie(movieName)
 }
 
+// Retrieves movie info from the api using the movieName variable and creates a list of results
 function getMovie(movieName) {
   fetch(`https://movie-database-alternative.p.rapidapi.com/?s=${movieName}&r=json&page=1`, options)
     .then(response => response.json())
     .then(data => {
       searchTitleEl.text(" " + movieName);
-      //let resultEl = $('<div>').text('test');
       const list = document.getElementById("result-content");
 
       while (list.hasChildNodes()) {
         list.removeChild(list.firstChild);
       }
 
+      // This for loop reads from the result from fetch and builds a list of the search results
       for (var i = 0; i < data.Search.length; i++) {
         let resultText = (data.Search[i].Title + " " + data.Search[i].Year);
         let textEl = $('<p>').text(resultText).addClass('col-12 searchTitle');
@@ -65,6 +67,7 @@ function getMovie(movieName) {
     .catch(err => console.error(err));
 }
 
+// Event listener for the search list
 searchForm.addEventListener('submit', getMovieAndSearch);
 
 let addToWatchList = (event) => {
@@ -79,14 +82,15 @@ let addToWatchList = (event) => {
 }
 
 
-//Previous movie search saved to local storage
+// Previous movie search saved to local storage
 function storeSearch() {
   localStorage.setItem("movieSearch", JSON.stringify(movieSearch));
 };
 
+// Creates a list of previous searches from the moviesearch array
 function renderSearch() {
-  
   previousSearch.innerHTML = "";
+
   for (var i = 0; i < movieSearch.length; i++) {
     var singleSearch = movieSearch[i];
     let li = document.createElement("li");
@@ -105,6 +109,7 @@ function renderSearch() {
   }
 };
 
+// Event listener on the x button to remove a previous search from the previous searches list 
 previousSearch.addEventListener('click', function (event) {
   if (event.target.matches(".delete-me")) {
     const idx = event.target.getAttribute("data-idx");
@@ -125,10 +130,12 @@ clearBtn.addEventListener("click", function () {
   movieSearch = [];
 });
 
+// Saves watchlist to local storage
 function updateWatchlist() {
   localStorage.setItem("watchlist", JSON.stringify(watchlist));
 }
 
+// Creates watchlist and previsous searches from local storage
 function startApp() {
   watchlist = JSON.parse(localStorage.getItem("watchlist"))
   movieSearch = JSON.parse(localStorage.getItem("movieSearch"))
@@ -137,6 +144,7 @@ function startApp() {
   renderSearch()
 }
 
+// Creates and adds slides to the glide using data from the watchlist array
 function displayMovieCards(){
   for( var i = 0; i < watchlist.length; i++ ) {
     var title = watchlist[i].title;
@@ -150,6 +158,7 @@ function displayMovieCards(){
 
 startApp()
 
+// This function will not run on index.html
 if (slides) {
   displayMovieCards();
 }
