@@ -2,11 +2,11 @@
 
 
 ## Description
-The motivation for this project was to create a  interactive movie search from an existing API that allows the user to create a custom movie playlist.For this project we incorporated the use of APIs, HTML and Bootstrap, CSS, javascript, jQuery, and glide.js.
+The motivation for this project was to create a interactive movie search from an existing API that allows the user to create a custom movie playlist. For this project we incorporated the use of APIs, HTML and Bootstrap, CSS, javascript, jQuery, and glide.js.
 
 ## Installation
 
-Right clicking on the index.html and selecting "Open in default browser" will open the browser and  navigate to the main search page page. 
+Right clicking on the index.html and selecting "Open in default browser" will open the browser and navigate to the main search page page. 
 
 ## Usage
 
@@ -16,13 +16,17 @@ Here is a screenshot of the landing page:
 
 ![Application Preview](https://github.com/TylerArch/Group-6-Project/blob/main/assets/images/landing-page-screenshot.png?raw=true)
 
-Here is the link to the live webpage:
-
-https://tylerarch.github.io/Group-6-Project/
+# Links
+* [Deployed website](https://tylerarch.github.io/Group-6-Project/)
+* [Repository](https://github.com/TylerArch/Group-6-Project)
 
 ## Credits
+* [Tyler Arch](https://github.com/TylerArch)
+* [Brent Gustafson](https://github.com/BrentG6000)
+* [Alex Oleynik](https://github.com/AlexO16)
+* [Tyler Olson](https://github.com/TheInterloper)
+* [Movie Database API](https://rapidapi.com/rapidapi/api/movie-database-alternative)
 
-Alex O., Tyler O., and Brent G.
 
 ## License
 
