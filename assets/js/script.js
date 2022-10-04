@@ -8,7 +8,6 @@ let resultsEl = $("#result-content");
 let searchTitleEl = $("#result-text");
 var clearBtn = document.getElementById('clearBtn')
 var slides = document.getElementById("slides")
-
 var watchlist = [];
 
 //Add Api
@@ -47,6 +46,7 @@ function getMovie(movieName) {
         list.removeChild(list.firstChild);
       }
 
+      // This for loop reads from the result from fetch and builds a list of the search results
       for (var i = 0; i < data.Search.length; i++) {
         let resultText = (data.Search[i].Title + " " + data.Search[i].Year);
         let textEl = $('<p>').text(resultText).addClass('col-12 searchTitle');
@@ -129,6 +129,7 @@ function updateWatchlist() {
   localStorage.setItem("watchlist", JSON.stringify(watchlist));
 }
 
+// Creates watchlist 
 function startApp() {
   watchlist = JSON.parse(localStorage.getItem("watchlist"))
   movieSearch = JSON.parse(localStorage.getItem("movieSearch"))
@@ -137,6 +138,7 @@ function startApp() {
   renderSearch()
 }
 
+// Creates and adds slides to the glide using data from the watchlist array
 function displayMovieCards(){
   for( var i = 0; i < watchlist.length; i++ ) {
     var title = watchlist[i].title;
@@ -150,6 +152,7 @@ function displayMovieCards(){
 
 startApp()
 
+// This function will not run on watchlist.html
 if (slides) {
   displayMovieCards();
 }
