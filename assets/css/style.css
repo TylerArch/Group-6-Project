@@ -158,12 +158,19 @@ button:focus {
 }
 
 .jumbotron {
-    background-color: orange;
+    background-color: transparent;
     font-weight: bold;
 }
 
 .jumboText {
     justify-self: center;
+    color: orange;
+    font-weight: bolder;
+}
+
+.lead {
+    color: #DADFE7;
+    font-weight: bold;
 }
 
 .saveToWatchButton {
