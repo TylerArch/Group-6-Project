@@ -26,5 +26,27 @@ body {
 
 }
 #return{
- 
+  background-color: #3DD6F5;
+  font-weight: 600;
+  border-radius: 8px;
+  color: black;
+  margin-left: 20px;
+}
+#return:hover{
+  background-color: orange;
+  font-weight: 600;
+  border-radius: 8px;
+  color: black;
+  cursor: pointer;
+  margin-left: 20px;
+  transition: ease-in-out .2s;
+}
+#return:active{
+  background-color: orange;
+  font-weight: 600;
+  border-radius: 8px;
+  color: black;
+  margin-left: 20px;
+  transform: scale(95%);
+
 }
