@@ -176,3 +176,7 @@ button:focus {
     margin-top: 15px;
     transform: scale(95%);
 }
+
+footer {
+    background-color: orange;
+}
